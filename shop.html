@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>商店</title>
+    <script>
+        let woodCount = 0; // 全局变量
+        let meatCount = 0; // 全局变量
+        let money = 0; // 全局变量
+    
+        // ...剩余的代码
+    </script>
+    
+    <script>
+        // 在页面加载时从localStorage读取数据
+        window.onload = function() {
+            loadGameData();
+        };
+
+        function loadGameData() {
+            woodCount = parseInt(localStorage.getItem('woodCount'), 10) || 0;
+            meatCount = parseInt(localStorage.getItem('meatCount'), 10) || 0;
+            money = parseInt(localStorage.getItem('money'), 10) || 0;
+
+            document.getElementById('woodCount').textContent = woodCount;
+            document.getElementById('meatCount').textContent = meatCount;
+            document.getElementById('money').textContent = money;
+        }
+    </script>
+</head>
+<body>
+    <h1>欢迎来到商店</h1>
+    <p>木头: <span id="woodCount">0</span></p>
+    <p>鲜肉: <span id="meatCount">0</span></p>
+    <p>货币: <span id="money">0</span></p>
+    <label for="sellWood">出售木头数量:</label>
+    <input type="number" id="sellWood" value="0">
+    <label for="sellMeat">出售鲜肉数量:</label>
+    <input type="number" id="sellMeat" value="0">
+    <button id="sellResources">出售资源</button>
+
+    <script>
+        const woodPrice = 10; // 每块木头10货币
+        const meatPrice = 20; // 每块鲜肉20货币
+
+        function sellResources() {
+            const sellWood = parseInt(document.getElementById('sellWood').value, 10);
+            const sellMeat = parseInt(document.getElementById('sellMeat').value, 10);
+
+            if (sellWood > woodCount || sellMeat > meatCount) {
+                alert("您没有足够的资源进行交易！");
+                return;
+            }
+
+            const woodValue = sellWood * woodPrice;
+            const meatValue = sellMeat * meatPrice;
+
+            money += woodValue + meatValue;
+            woodCount -= sellWood;
+            meatCount -= sellMeat;
+
+            document.getElementById('woodCount').textContent = woodCount;
+            document.getElementById('meatCount').textContent = meatCount;
+            document.getElementById('money').textContent = money;
+
+            // 保存交易后的数据到localStorage
+            saveGameData();
+
+            document.getElementById('sellWood').value = 0;
+            document.getElementById('sellMeat').value = 0;
+        }
+
+        function saveGameData() {
+            localStorage.setItem('woodCount', woodCount);
+            localStorage.setItem('meatCount', meatCount);
+            localStorage.setItem('money', money);
+        }
+
+        document.getElementById('sellResources').addEventListener('click', sellResources);
+    </script>
+    <a href="gamestart.html" onclick="saveGameData()">返回游戏</a>
+</body>
+</html>

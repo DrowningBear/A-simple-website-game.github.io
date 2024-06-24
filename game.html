@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册与登录</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="loginForm">
+        <h1>登录</h1>
+        <label for="loginUsername">用户名:</label>
+        <input type="text" id="loginUsername" name="loginUsername" required><br><br>
+        <label for="loginPassword">密码:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+        <button onclick="login()">登录</button>
+        <p>没有账号？<a href="#" onclick="showRegistration()">注册</a></p>
+    </div>
+
+    <div id="registrationForm" style="display: none;">
+        <h1>注册</h1>
+        <label for="regUsername">用户名:</label>
+        <input type="text" id="regUsername" name="regUsername" required><br><br>
+        <label for="regPassword">密码:</label>
+        <input type="password" id="regPassword" name="regPassword" required><br><br>
+        <button onclick="register()">注册</button>
+        <p>已有账号？<a href="#" onclick="showLogin()">登录</a></p>
+    </div>
+
+    <p id="statusMessage"></p>
+
+    <script src="game.js"></script>
+</body>
+</html>
