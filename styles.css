@@ -1,0 +1,6 @@
+body {
+  background-image: url('https://raw.githubusercontent.com/您的用户名/仓库名/分支名/图片路径');
+  background-size: cover; /* 覆盖整个背景 */
+  background-repeat: no-repeat; /* 不重复 */
+  background-position: center center; /* 居中 */
+}
