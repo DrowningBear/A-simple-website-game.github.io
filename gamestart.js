@@ -1,6 +1,11 @@
 let woodCount = 0;
 let meatCount = 0;
-let money = 0;
+let money = 0; // 全局货币变量
+
+// 假设您有一个函数来更新游戏界面的资源显示
+function updateResourceDisplay() {
+    document.getElementById('moneyDisplay').textContent = money; // 假设这是显示货币的元素
+}
 function updateStatus() {
     let status = chopping ? "正在持续砍树..." : "停止砍树";
     if (hunting) {
