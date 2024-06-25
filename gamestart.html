@@ -1,35 +1,13 @@
 <!-- game.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>怎么活呢</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        // 假设您已经定义了全局变量woodCount, meatCount, money等
-
-        // 重置游戏数据的函数
-        function resetGame() {
-            // 确认重置操作
-            if (confirm("确定要重置游戏吗？这将清除所有数据。")) {
-                // 清除localStorage中的所有数据
-                localStorage.clear();
-                // 重置游戏界面上的显示
-                document.getElementById('woodCountDisplay').textContent = 0;
-                document.getElementById('meatCountDisplay').textContent = 0;
-                document.getElementById('moneyDisplay').textContent = 0;
-            }
-        }
-
-        // 添加重置按钮到HTML
-        <button id="resetGame">重置游戏</button>
-
-        // 添加事件监听器来触发重置操作
-        document.getElementById('resetGame').addEventListener('click', resetGame);
-    </script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>欢迎来到生存游戏</h1>
     <button id="chopButton" onclick="chopWood()">砍树</button>
     <p>木头数量: <span id="woodCount">0</span></p>
@@ -39,8 +17,9 @@
     <p id="status"></p>
     <p>金币数：<span id="money">0</span></p>
     <p id="status"></p>
+    <button id="resetGame">重置游戏</button>
 
     <script src="gamestart.js"></script>
     <a href="shop.html">进入商店</a>
-</body>
+  </body>
 </html>
