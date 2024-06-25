@@ -2,37 +2,13 @@
 <html>
 <head>
     <title>商店</title>
-    <script>
-        let woodCount = 0; // 全局变量
-        let meatCount = 0; // 全局变量
-        let money = 0; // 全局变量
-    
-        // ...剩余的代码
-    </script>
-    
-    <script>
-        // 在页面加载时从localStorage读取数据
-        window.onload = function() {
-            loadGameData();
-        };
-
-        function loadGameData() {
-            woodCount = parseInt(localStorage.getItem('woodCount'), 10) || 0;
-            meatCount = parseInt(localStorage.getItem('meatCount'), 10) || 0;
-            money = parseInt(localStorage.getItem('money'), 10) || 0;
-
-            document.getElementById('woodCount').textContent = woodCount;
-            document.getElementById('meatCount').textContent = meatCount;
-            document.getElementById('money').textContent = money;
-        }
-    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>欢迎来到商店</h1>
     <p>木头: <span id="woodCount">0</span></p>
     <p>鲜肉: <span id="meatCount">0</span></p>
-    <p>货币: <span id="money">0</span></p>
+    <p>货币: <span id="moneyCount">0</span></p>
     <label for="sellWood">出售木头数量:</label>
     <input type="number" id="sellWood" value="0">
     <label for="sellMeat">出售鲜肉数量:</label>
@@ -55,13 +31,13 @@
             const woodValue = sellWood * woodPrice;
             const meatValue = sellMeat * meatPrice;
 
-            money += woodValue + meatValue;
+            moneyCount += woodValue + meatValue;
             woodCount -= sellWood;
             meatCount -= sellMeat;
 
             document.getElementById('woodCount').textContent = woodCount;
             document.getElementById('meatCount').textContent = meatCount;
-            document.getElementById('money').textContent = money;
+            document.getElementById('moneyCount').textContent = moneyCount;
 
             // 保存交易后的数据到localStorage
             saveGameData();
@@ -73,11 +49,12 @@
         function saveGameData() {
             localStorage.setItem('woodCount', woodCount);
             localStorage.setItem('meatCount', meatCount);
-            localStorage.setItem('money', money);
+            localStorage.setItem('moneyCount', moneyCount);
         }
 
         document.getElementById('sellResources').addEventListener('click', sellResources);
     </script>
     <a href="gamestart.html" onclick="saveGameData()">返回游戏</a>
+    <script src="game.js"></script>
 </body>
 </html>
