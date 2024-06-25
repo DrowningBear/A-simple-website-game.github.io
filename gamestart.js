@@ -16,7 +16,6 @@ function updateStatus() {
   
     document.getElementById("status").textContent = status;
   }
-
   let chopping = false;
   let chopInterval;
   const woodCountElement = document.getElementById("woodCount");
@@ -54,7 +53,19 @@ function updateStatus() {
     }
     updateStatus();
   }
-  
+  function resetGame() {
+    // 确认重置操作
+    if (confirm("确定要重置游戏吗？这将清除所有数据。")) {
+      // 清除localStorage中的所有数据
+      localStorage.clear();
+      // 重置游戏界面上的显示
+      document.getElementById("woodCountDisplay").textContent = 0;
+      document.getElementById("meatCountDisplay").textContent = 0;
+      document.getElementById("moneyDisplay").textContent = 0;
+    }
+  }
+  // 添加事件监听器来触发重置操作
+  document.getElementById("resetGame").addEventListener("click", resetGame);
   
   window.onload = function() {
     woodCount = parseInt(localStorage.getItem('woodCount')) || 0;
