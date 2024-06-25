@@ -9,10 +9,13 @@ function loadGameData() {
     // 从localStorage读取木头和鲜肉的数量
     let woodCount = parseInt(localStorage.getItem('woodCount'), 10) || 0;
     let meatCount = parseInt(localStorage.getItem('meatCount'), 10) || 0;
+    money = parseInt(localStorage.getItem('money'), 10) || 0;
+
 
     // 更新商店页面上的显示
     document.getElementById('woodCountDisplay').textContent = woodCount;
     document.getElementById('meatCountDisplay').textContent = meatCount;
+    document.getElementById('moneyDisplay').textContent = money; // 假设这是显示货币的元素
 }
 
 // 假设在商店界面上有一个按钮用于返回游戏界面
@@ -29,6 +32,7 @@ function saveGameData() {
     // 然后保存到localStorage
     localStorage.setItem('woodCount', woodCount);
     localStorage.setItem('meatCount', meatCount);
+    localStorage.setItem('money', money); // 保存当前的货币到localStorage
 }
 const woodPrice = 10; // 每块木头10货币
         const meatPrice = 20; // 每块鲜肉20货币
