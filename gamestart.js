@@ -1,5 +1,6 @@
 let woodCount = 0;
 let meatCount = 0;
+let money = 0;
 function updateStatus() {
     let status = chopping ? "正在持续砍树..." : "停止砍树";
     if (hunting) {
