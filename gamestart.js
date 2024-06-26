@@ -108,17 +108,3 @@ function resetGame() {
 // 添加事件监听器来触发重置操作
 
 document.getElementById("resetGame").addEventListener("click", resetGame);
-
-window.onload = function () {
-  woodCount = parseInt(localStorage.getItem("woodCount")) || 0;
-
-  meatCount = parseInt(localStorage.getItem("meatCount")) || 0;
-
-  moneyCount = parseInt(localStorage.getItem("moneyCount")) || 0;
-
-  woodCountElement.textContent = woodCount;
-
-  meatCountElement.textContent = meatCount;
-
-  moneyCountElement.textContent = moneyCount;
-};
