@@ -1,43 +1,39 @@
 // 商店页面的JavaScript
+
 // 页面加载时读取存储的数据
-window.onload = function () {
-  loadGameData();
+window.onload = function() {
+    loadGameData();
 };
 
-function updateMoney() {
-    moneyCountElement.textContent = moneyCount;
-  }
-
 function loadGameData() {
-  let woodCount = parseInt(localStorage.getItem("woodCount"), 10) || 0;
+    // 从localStorage读取木头和鲜肉的数量
+    let woodCount = parseInt(localStorage.getItem('woodCount'), 10) || 0;
+    let meatCount = parseInt(localStorage.getItem('meatCount'), 10) || 0;
+    let moneyCount = parseInt(localStorage.getItem('moneyCount'), 10) || 0;
 
-  let meatCount = parseInt(localStorage.getItem("meatCount"), 10) || 0;
-
-  let moneyCount = parseInt(localStorage.getItem("moneyCount"), 10) || 0; // 添加这一行
-
-  document.getElementById("woodCountDisplay").textContent = woodCount;
-
-  document.getElementById("meatCountDisplay").textContent = meatCount;
-
-  document.getElementById("moneyCountDisplay").textContent = moneyCount; // 添加这一行
+    // 更新商店页面上的显示
+    document.getElementById('woodCountDisplay').textContent = woodCount;
+    document.getElementById('meatCountDisplay').textContent = meatCount;
+    document.getElementById('moneyCountDisplay').textContent = moneyCount;
 }
 
 // 假设在商店界面上有一个按钮用于返回游戏界面
-document.getElementById("backToGame").addEventListener("click", function () {
-  // 离开商店页面时保存当前的数据
-  saveGameData();
-  // 然后跳回到游戏界面
-  window.location.href = "game.html"; // 假设游戏页面的URL是game.html
+document.getElementById('backToGame').addEventListener('click', function() {
+    // 离开商店页面时保存当前的数据
+    saveGameData();
+    // 然后跳回到游戏界面
+    window.location.href = "game.html"; // 假设游戏页面的URL是game.html
 });
 
 function saveGameData() {
-  // 在这里保存任何在商店页面上的更改
-  // 例如，如果用户在商店中购买了物品，更新woodCount和meatCount
-  // 然后保存到localStorage
-  localStorage.setItem("woodCount", woodCount);
-  localStorage.setItem("meatCount", meatCount);
-  localStorage.setItem("moneyCount", moneyCount);
+    // 在这里保存任何在商店页面上的更改
+    // 例如，如果用户在商店中购买了物品，更新woodCount和meatCount
+    // 然后保存到localStorage
+    localStorage.setItem('woodCount', woodCount);
+    localStorage.setItem('meatCount', meatCount);
+    localStorage.setItem('moneyCount', moneyCount); // 使用相同的变量名
 }
+
 const woodPrice = 10; // 每块木头10货币
 const meatPrice = 20; // 每块鲜肉20货币
 
