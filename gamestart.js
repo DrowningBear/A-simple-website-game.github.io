@@ -75,13 +75,13 @@ function updateStatus() {
     loadGameData();
   };
 
-  function loadGameData() {
+ function loadGameData() {
     woodCount = parseInt(localStorage.getItem('woodCount'), 10) || 0;
     meatCount = parseInt(localStorage.getItem('meatCount'), 10) || 0;
-    moneyCount = localStorage.getItem('moneyCount') || 0; // 使用localStorage.getItem代替parseInt
+    moneyCount = parseInt(localStorage.getItem('moneyCount'), 10) || 0;
 
     moneyCountElement.textContent = moneyCount; // 更新游戏界面上的显示
-  }
+}
 
   function resetGame() {
     if (confirm("确定要重置游戏吗？这将清除所有数据。")) {
